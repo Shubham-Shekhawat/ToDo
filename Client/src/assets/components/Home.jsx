@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 const Home = () => {
     const [users,setUsers]=useState([])
     useEffect(()=>{
-        axios.get("http://localhost:3000/")
+        axios.get("http://localhost:4040/")
         .then(result => setUsers(result.data))
         .catch(err =>console.error(err))
     },[])
 
     const Delete=(id)=>{
-        axios.delete("http://localhost:3000/delete/"+id)
+        axios.delete("http://localhost:4040/delete/"+id)
             .then((result) => {
                 console.log(result)
                 window.location.reload() // to reload the page

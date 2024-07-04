@@ -10,7 +10,7 @@ const Update = () => {
   const navigate=useNavigate()
 
   useEffect(()=>{
-    axios.get("http://localhost:3000/getuser/"+id)
+    axios.get("http://localhost:4040/getuser/"+id)
     .then(result => {console.log(result)
         setName(result.data.name),
         setEmail(result.data.email),
@@ -21,7 +21,7 @@ const Update = () => {
 
 const UpdateUser=(e)=>{
     e.preventDefault()
-    axios.put("http://localhost:3000/update/"+id,{name,email,age})
+    axios.put("http://localhost:4040/update/"+id,{name,email,age})
         .then((result) => {
             console.log(result)
             navigate("/");

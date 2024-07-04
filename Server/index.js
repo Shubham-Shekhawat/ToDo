@@ -7,6 +7,8 @@ const app=express()
 app.use(cors())
 app.use(express.json())
 
+mongoose.connect("mongodb://127.0.0.1:27017/Userwithyousuf")
+
 app.get("/", async (req,res)=>{
     await model.find({})
     .then(result => {
@@ -47,12 +49,13 @@ app.delete("/delete/:id",async (req,res)=>{
     })
 })
 
-mongoose.connect("mongodb://127.0.0.1:27017/Userwithyousuf")
+
 
 app.post("/create", async (req,res)=>{
     let {name,email,age}=req.body;
     await model.create({name,email,age})
     .then((result) => {
+        console.log(result);
         res.json(result);
     }).catch((err) => {
         console.error(err);
@@ -60,6 +63,6 @@ app.post("/create", async (req,res)=>{
     
 })
 
-app.listen(3000,()=>{
-    console.log("Listenning on 3000")
+app.listen(4040,()=>{
+    console.log("Listenning on 4040")
 })
